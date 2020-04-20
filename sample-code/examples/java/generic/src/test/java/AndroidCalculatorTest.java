@@ -20,13 +20,23 @@ public class AndroidCalculatorTest {
 
         AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 
-        driver.findElement(By.name("1")).click();
-        driver.findElement(By.name("5")).click();
-        driver.findElement(By.name("9")).click();
-        driver.findElement(By.name("delete")).click();
-        driver.findElement(By.name("+")).click();
-        driver.findElement(By.name("6")).click();
-        driver.findElement(By.name("=")).click();
+//        driver.findElement(By.name("1")).click();
+        driver.findElement(By.id("com.android.calculator2:id/digit_1")).click();
+//        driver.findElement(By.name("5")).click();
+        driver.findElement(By.id("com.android.calculator2:id/digit_5")).click();
+//        driver.findElement(By.name("9")).click();
+        driver.findElement(By.id("com.android.calculator2:id/digit_9")).click();
+//        driver.findElement(By.name("delete")).click();
+        driver.findElement(By.id("com.android.calculator2:id/del")).click();
+//        driver.findElement(By.name("+")).click();
+        driver.findElement(By.id("com.android.calculator2:id/op_add")).click();
+//        driver.findElement(By.name("6")).click();
+        driver.findElement(By.id("com.android.calculator2:id/digit_6")).click();
+//        driver.findElement(By.name("=")).click();
+//        driver.findElement(By.id("com.android.calculator2:id/eq")).click();
+        driver.findElementByAndroidUIAutomator("new UiSelector().text(\"=\")").click();
+//        driver.findElementByAndroidUIAutomator("text(\"=\")").click();
+
         Thread.sleep(2000);
 
         String result = driver.findElement(By.id("com.android.calculator2:id/formula")).getText();
